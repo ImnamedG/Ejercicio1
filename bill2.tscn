@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dwwfieapwewss"]
+
+[ext_resource type="Script" uid="uid://6j05ao6s5d7w" path="res://static_body_2d.gd" id="1_2jjgc"]
+[ext_resource type="Texture2D" uid="uid://dp0f5nn4gtn6l" path="res://enemies.png" id="1_lb86h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lb86h"]
+atlas = ExtResource("1_lb86h")
+region = Rect2(53.99603, 51.980076, 16.025394, 16.042515)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aui74"]
+size = Vector2(16, 11)
+
+[node name="bill2" type="Node2D" unique_id=1697100423]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1575127751]
+position = Vector2(-1334, -1)
+script = ExtResource("1_2jjgc")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1476586383]
+texture_filter = 1
+texture = SubResource("AtlasTexture_lb86h")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=267934457]
+shape = SubResource("RectangleShape2D_aui74")

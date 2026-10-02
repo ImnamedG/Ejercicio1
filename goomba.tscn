@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://c3ci8fehv8lmg"]
+
+[ext_resource type="Script" uid="uid://br6lx1sehjomo" path="res://enemigo.gd" id="1_jke6y"]
+[ext_resource type="Texture2D" uid="uid://dp0f5nn4gtn6l" path="res://enemies.png" id="2_lwfim"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qp31q"]
+size = Vector2(29.681671, 16.15452)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hol4"]
+atlas = ExtResource("2_lwfim")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6r6c"]
+atlas = ExtResource("2_lwfim")
+region = Rect2(18, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yj1s3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hol4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6r6c")
+}],
+"loop": 1,
+"name": &"Move",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_508bv"]
+size = Vector2(1.4262896, 0.5788975)
+
+[node name="Node2D" type="Node2D" unique_id=1018976501]
+
+[node name="Goomba" type="CharacterBody2D" parent="." unique_id=1585228799]
+position = Vector2(0, 2.3841858e-07)
+scale = Vector2(0.02370703, 0.022959819)
+script = ExtResource("1_jke6y")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Goomba" unique_id=2084954612]
+position = Vector2(-6.1035156e-05, 87.103516)
+scale = Vector2(21.752892, 31.783842)
+shape = SubResource("RectangleShape2D_qp31q")
+
+[node name="AbajoDer" type="RayCast2D" parent="Goomba" unique_id=1785212879]
+position = Vector2(421.81625, 217.76732)
+scale = Vector2(7.2331705, 2.6942992)
+target_position = Vector2(0, 80.828125)
+
+[node name="AbajoIzq" type="RayCast2D" parent="Goomba" unique_id=2049768096]
+position = Vector2(-379.63422, 217.76639)
+scale = Vector2(14.158472, 0.7971269)
+target_position = Vector2(0, 304.8789)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Goomba" unique_id=496707960]
+texture_filter = 1
+position = Vector2(0, 43.546875)
+scale = Vector2(40.81812, 41.332626)
+sprite_frames = SubResource("SpriteFrames_yj1s3")
+animation = &"Move"
+
+[node name="death" type="Area2D" parent="Goomba" unique_id=2103555271]
+position = Vector2(0, 87.10156)
+scale = Vector2(1, 0.99999994)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goomba/death" unique_id=1132568341]
+position = Vector2(0, -0.00033569336)
+scale = Vector2(473.18826, 1010.21246)
+shape = SubResource("RectangleShape2D_508bv")
+debug_color = Color(0.9999998, 0.006302818, 0.07936404, 0.41960785)
+
+[node name="Area2D" type="Area2D" parent="Goomba" unique_id=1809293783]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goomba/Area2D" unique_id=1810128438]
+position = Vector2(-6.1035156e-05, 87.103516)
+scale = Vector2(21.752892, 31.783842)
+shape = SubResource("RectangleShape2D_qp31q")

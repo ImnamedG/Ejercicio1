@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dwa7jqi0a45hl"]
+
+[ext_resource type="Texture2D" uid="uid://dp0f5nn4gtn6l" path="res://enemies.png" id="2_43l7l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfkbx"]
+atlas = ExtResource("2_43l7l")
+region = Rect2(53.99603, 51.980076, 16.025394, 16.042515)
+
+[node name="bill" type="CharacterBody2D" unique_id=404137333]
+position = Vector2(1, 6)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1187322311]
+texture_filter = 1
+texture = SubResource("AtlasTexture_lfkbx")
